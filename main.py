@@ -30,7 +30,13 @@ class MainWindow(QMainWindow):
 
     def vaihda_kysymys_ja_vastaukset(self, indeksi):
         tekstit = KYSYMYKSET_JA_VASTAUKSET[indeksi]
-        self.aseta_tekstit(tekstit)
+        uudet_tekstit = []
+        for (numero, teksti) in enumerate(tekstit):
+            if teksti.startswith("*"):
+                teksti = teksti[1:]
+                self.oikea_vastaus = numero
+            uudet_tekstit.append(teksti)
+        self.aseta_tekstit(uudet_tekstit)
 
     def aseta_tekstit(self, tekstit):
         self.aseta_kysymys(tekstit[0])
