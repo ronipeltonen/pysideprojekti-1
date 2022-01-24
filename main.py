@@ -17,7 +17,7 @@ KYSYMYKSET_JA_VASTAUKSET = [
         "*25",
         "27",
         "35",
-    )
+    ),
 ]
 
 
