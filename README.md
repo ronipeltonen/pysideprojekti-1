@@ -11,5 +11,5 @@ Työpöytäohjelman ohjelmointiharjoitus PySide/Qt/Python-ympäristössä.
 * Aktivoi virtuaaliympäristö
 * Asenna paketit
   ```
-  pip install -r requirements.txt`
+  pip install -r requirements.txt
   ```
