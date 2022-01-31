@@ -1,5 +1,5 @@
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
 
 from quiz_ui import Ui_MainWindow
 
@@ -79,7 +79,11 @@ class MainWindow(QMainWindow):
 
         self.indeksi += 1
         if self.indeksi >= len(KYSYMYKSET_JA_VASTAUKSET):
+            laatikko = QMessageBox(self)
+            laatikko.setText(f"Peli päättyi! Sait {self.pisteet} pistettä.")
+            laatikko.exec()
             self.indeksi = 0
+            self.pisteet = 0
 
         self.vaihda_kysymys_ja_vastaukset(self.indeksi)
 
