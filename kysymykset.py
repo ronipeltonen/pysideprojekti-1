@@ -1,3 +1,4 @@
+import html
 import random
 
 import requests
@@ -14,7 +15,11 @@ def lataa_kysymykset_netista():
         vaarat_vastaukset = juttu["incorrect_answers"]
         vastaukset = ["*" + oikea_vastaus] + vaarat_vastaukset
         random.shuffle(vastaukset)
-        kysymykset_ja_vastaukset.append([kysymys] + vastaukset)
+        tekstit = [
+            html.unescape(teksti)
+            for teksti in [kysymys] + vastaukset
+        ]
+        kysymykset_ja_vastaukset.append(tekstit)
     return kysymykset_ja_vastaukset
 
 
