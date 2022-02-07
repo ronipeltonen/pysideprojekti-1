@@ -1,4 +1,6 @@
 import sys
+
+from PySide6.QtGui import QPalette
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
 
 from kysymykset import lataa_kysymykset_netista
@@ -60,6 +62,10 @@ class MainWindow(QMainWindow):
 
         if nappi == self.oikea_vastaus:
             print("Oikein!")
+            painettu_nappi = self.sender()
+            paletti = QPalette()
+            paletti.setColor(QPalette.Button, "#00ff00")
+            painettu_nappi.setPalette(paletti)
             self.pisteet += 1
 
         self.indeksi += 1
